@@ -1,0 +1,10 @@
+{
+  "USR_001000": {
+    "code": "USR_001000",
+    "message": "You are already logged in."
+  },
+  "USR_001001": {
+    "code": "USR_001001",
+    "message": "unacceptable data for register new user"
+  }
+}
