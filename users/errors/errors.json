@@ -1,18 +1,18 @@
 {
   "USR_001000": {
     "code": "USR_001000",
-    "message": "You are already logged in."
+    "message": "Action not allowed. You are already logged in."
   },
   "USR_001001": {
     "code": "USR_001001",
-    "message": "unacceptable data for register new user"
+    "message": "Invalid input data. Unable to register a new user."
   },
   "USR_001002": {
     "code": "USR_001002",
-    "message": "you are not logged in"
+    "message": "Authentication required. You must be logged in to perform this action."
   },
   "USR_001003": {
     "code": "USR_001003",
-    "message": "unacceptable data for register new user"
+    "message": "Invalid input data. Unable to process the user registration."
   }
 }
