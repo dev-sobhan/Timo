@@ -1,1 +1,2 @@
 from .allow_only_unauthenticated import AllowOnlyUnauthenticated
+from .is_authenticated import IsAuthenticated

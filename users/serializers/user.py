@@ -11,9 +11,9 @@ class UserSerializer(serializers.ModelSerializer):
             "id",
             "full_name",
             "email",
-            "is_verify",
+            "is_verified",
             "role",
             "created_at",
-            "update_at",
+            "updated_at",
         )
-        read_only_fields = ("id", "is_verify", "role", "created_at", "update_at")
+        read_only_fields = ("id", "is_verified", "role", "created_at", "updated_at", 'email')

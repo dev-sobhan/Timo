@@ -6,5 +6,13 @@
   "USR_001001": {
     "code": "USR_001001",
     "message": "unacceptable data for register new user"
+  },
+  "USR_001002": {
+    "code": "USR_001002",
+    "message": "you are not logged in"
+  },
+  "USR_001003": {
+    "code": "USR_001003",
+    "message": "unacceptable data for register new user"
   }
 }
