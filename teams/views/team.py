@@ -3,7 +3,7 @@ from rest_framework.decorators import action
 from drf_spectacular.utils import extend_schema, OpenApiResponse
 from users.permissions import IsAuthenticated
 from utils.response import success_response, error_response
-from users.errors.loader import get_error
+from teams.errors.loader import get_error
 from teams.models import Team, TeamMember
 from teams.serializers import TeamSerializer
 from teams.permissions import IsTeamOwnerOrAdmin
@@ -39,7 +39,7 @@ class TeamViewSet(viewsets.ModelViewSet):
         permissions = list(self.permission_classes)
         if self.action in ['update', 'partial_update', 'activate', 'deactivate']:
             permissions.append(IsTeamOwnerOrAdmin)
-        return [perm() for perm in permissions]
+        return (perm() for perm in permissions)
 
     @extend_schema(
         summary="Create a new team",

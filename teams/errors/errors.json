@@ -30,5 +30,21 @@
   "TEAM_001008": {
     "code": "TEAM_001008",
     "message": "Invalid data provided. Unable to sent request"
+  },
+  "TEAM_001009": {
+    "code": "TEAM_001009",
+    "message": "you are not owner or admin of this team"
+  },
+  "TEAM_001010": {
+    "code": "TEAM_001010",
+    "message": "Operation failed. Unable to accept request."
+  },
+  "TEAM_001011": {
+    "code": "TEAM_001011",
+    "message": "invalid id"
+  },
+  "TEAM_001012": {
+    "code": "TEAM_001010",
+    "message": "Operation failed. Unable to reject request."
   }
 }

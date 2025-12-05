@@ -3,7 +3,7 @@ from teams.serializers import TeamRequestSerializer
 from users.permissions import IsAuthenticated
 from teams.models import TeamRequest
 from utils.response import success_response, error_response
-from users.errors.loader import get_error
+from teams.errors.loader import get_error
 from drf_spectacular.utils import extend_schema, OpenApiResponse
 from rest_framework import status
 

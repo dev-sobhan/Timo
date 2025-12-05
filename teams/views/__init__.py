@@ -1,2 +1,3 @@
 from .team import TeamViewSet
 from .user_membership_request import UserMembershipRequestViewSet
+from .team_membership_admin import TeamMembershipAdminViewSet
