@@ -1,9 +1,18 @@
 from django.urls import path
-from .views import TeamViewSet
+from .views import TeamViewSet, UserMembershipRequestViewSet
 
 app_name = 'teams'
 
 urlpatterns = [
+    # membership
+    path("membership/request/", UserMembershipRequestViewSet.as_view({
+        "get": "list",
+        "post": "create"
+    }), name="membership_request"),
+    path("membership/request/<int:pk>/", UserMembershipRequestViewSet.as_view({
+        "get": "retrieve",
+    }), name="membership_request_detail"),
+
     # Public teams
     path("list/", TeamViewSet.as_view({"get": "public_teams"}), name="team-public-list"),
 

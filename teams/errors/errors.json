@@ -26,5 +26,9 @@
   "TEAM_001007": {
     "code": "TEAM_001007",
     "message": "Invalid data provided. Unable to update the team."
+  },
+  "TEAM_001008": {
+    "code": "TEAM_001008",
+    "message": "Invalid data provided. Unable to sent request"
   }
 }

@@ -43,10 +43,21 @@ class TeamViewSet(viewsets.ModelViewSet):
 
     @extend_schema(
         summary="Create a new team",
+        description=(
+                "Creates a new team and automatically assigns the authenticated user as the owner. "
+                "The request must include required team fields such as name, visibility status, "
+                "and optional description. Validation errors are returned if provided data is invalid."
+        ),
         request=TeamSerializer,
         responses={
-            201: OpenApiResponse(description="Team created successfully", response=TeamSerializer),
-            400: OpenApiResponse(description="Validation error", response=dict)
+            201: OpenApiResponse(
+                description="Team created successfully",
+                response=TeamSerializer
+            ),
+            400: OpenApiResponse(
+                description="Invalid team data or validation error",
+                response=dict
+            )
         }
     )
     def create(self, request, *args, **kwargs):
@@ -63,8 +74,17 @@ class TeamViewSet(viewsets.ModelViewSet):
         )
 
     @extend_schema(
-        summary="Retrieve my teams",
-        responses={200: OpenApiResponse(description="List of user's teams", response=TeamSerializer)}
+        summary="Retrieve teams owned or joined by the user",
+        description=(
+                "Returns a list of all teams where the authenticated user is a member. "
+                "Includes teams where user is owner, admin, or regular member."
+        ),
+        responses={
+            200: OpenApiResponse(
+                description="List of teams the user is a member of",
+                response=TeamSerializer
+            )
+        }
     )
     @action(detail=False, methods=['get'])
     def my_teams(self, request):
@@ -74,7 +94,17 @@ class TeamViewSet(viewsets.ModelViewSet):
 
     @extend_schema(
         summary="Retrieve public teams",
-        responses={200: OpenApiResponse(description="List of public teams", response=TeamSerializer)}
+        description=(
+                "Returns a list of all public teams. Public teams are visible to all users and "
+                "have both 'is_visible' and 'is_active' set to true. "
+                "This endpoint does not require ownership or team membership."
+        ),
+        responses={
+            200: OpenApiResponse(
+                description="List of public teams",
+                response=TeamSerializer
+            )
+        }
     )
     @action(detail=False, methods=['get'])
     def public_teams(self, request):
@@ -84,10 +114,18 @@ class TeamViewSet(viewsets.ModelViewSet):
 
     @extend_schema(
         summary="Activate a team",
-        responses={200: OpenApiResponse(description="Team activated successfully")}
+        description=(
+                "Activates a specific team. Only team owners and admins are allowed to perform this action. "
+                "Once activated, the team becomes fully functional for its members."
+        ),
+        responses={
+            200: OpenApiResponse(description="Team activated successfully"),
+            400: OpenApiResponse(description="Failed to activate team", response=dict),
+            404: OpenApiResponse(description="Team not found")
+        }
     )
     @action(detail=True, methods=['patch'])
-    def activate(self, request, pk=None):
+    def activate(self, request, pk: int = None):
         try:
             team = self.get_object()
             team.is_active = True
@@ -101,10 +139,18 @@ class TeamViewSet(viewsets.ModelViewSet):
 
     @extend_schema(
         summary="Deactivate a team",
-        responses={200: OpenApiResponse(description="Team deactivated successfully")}
+        description=(
+                "Deactivates a specific team, making it unavailable for public or member usage. "
+                "Only team owners and admins are authorized to perform this action."
+        ),
+        responses={
+            200: OpenApiResponse(description="Team deactivated successfully"),
+            400: OpenApiResponse(description="Failed to deactivate team", response=dict),
+            404: OpenApiResponse(description="Team not found")
+        }
     )
     @action(detail=True, methods=['patch'])
-    def deactivate(self, request, pk=None):
+    def deactivate(self, request, pk: int = None):
         try:
             team = self.get_object()
             team.is_active = False
@@ -117,11 +163,23 @@ class TeamViewSet(viewsets.ModelViewSet):
             )
 
     @extend_schema(
-        summary="Partially update a team",
+        summary="Update team details (partial update)",
+        description=(
+                "Partially updates team information. Only team owners or admins can update team fields. "
+                "Fields not included in the request payload remain unchanged. "
+                "Validation errors will be returned if data is invalid."
+        ),
         request=TeamSerializer,
         responses={
-            200: OpenApiResponse(description="Team updated successfully", response=TeamSerializer),
-            400: OpenApiResponse(description="Validation error", response=dict)
+            200: OpenApiResponse(
+                description="Team updated successfully",
+                response=TeamSerializer
+            ),
+            400: OpenApiResponse(
+                description="Invalid update data or validation error",
+                response=dict
+            ),
+            404: OpenApiResponse(description="Team not found")
         }
     )
     def partial_update(self, request, *args, **kwargs):
