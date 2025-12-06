@@ -2,8 +2,7 @@ from rest_framework.viewsets import ModelViewSet
 from rest_framework.decorators import action
 from rest_framework import status
 from drf_spectacular.utils import extend_schema, OpenApiResponse
-
-from teams.models import Team, TeamRequest
+from teams.models import Team, TeamRequest, TeamMember
 from teams.serializers import TeamRequestSerializer
 from teams.permissions import IsTeamOwnerOrAdmin
 from users.permissions import IsAuthenticated
@@ -74,7 +73,7 @@ class TeamMembershipAdminViewSet(ModelViewSet):
         responses={200: OpenApiResponse(description="List of membership requests", response=serializer_class)}
     )
     @action(detail=False, methods=['get'], url_path='team/(?P<pk>[^/.]+)')
-    def list_team_requests(self, request, pk=None):
+    def list_team_requests(self, request, pk: int = None):
         queryset = self.get_queryset()
         serializer = self.get_serializer(queryset, many=True)
         return success_response(serializer.data)
@@ -92,6 +91,7 @@ class TeamMembershipAdminViewSet(ModelViewSet):
             if instance.team.members.filter(user=request.user, role__in=['owner', 'admin']).exists():
                 instance.status = 'accepted'
                 instance.save(update_fields=['status'])
+                TeamMember.objects.create(team=instance.team, user=request.user)
                 return success_response({'status': 'Request accepted'})
 
             return error_response(
