@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     # local apps
     'users.apps.UsersConfig',
     'teams.apps.TeamsConfig',
+    'tasks.apps.TasksConfig',
 ]
 
 MIDDLEWARE = [
