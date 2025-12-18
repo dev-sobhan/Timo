@@ -1,54 +1,54 @@
 {
   "TASK_001000": {
     "code": "TASK_001000",
-    "message": "you are not a member of this team"
+    "message": "You are not a member of this team."
   },
   "TASK_001001": {
     "code": "TASK_001001",
-    "message": "you are not admin or owner of this team"
+    "message": "You must be an admin or owner to perform this action on the team."
   },
   "TASK_001002": {
     "code": "TASK_001002",
-    "message": "unacceptable data for create a task"
+    "message": "Invalid data provided for creating a task."
   },
   "TASK_001003": {
     "code": "TASK_001003",
-    "message": "unacceptable data for update a task"
+    "message": "Invalid data provided for updating the task."
   },
   "TASK_001004": {
     "code": "TASK_001004",
-    "message": "team is required"
+    "message": "Team field is required."
   },
   "TASK_001006": {
     "code": "TASK_001006",
-    "message": "team not found"
+    "message": "The specified team was not found."
   },
   "TASK_001007": {
     "code": "TASK_001007",
-    "message": "team is required"
+    "message": "Team field is required."
   },
   "TASK_001008": {
     "code": "TASK_001008",
-    "message": "team not found"
+    "message": "The specified team was not found."
   },
   "TASK_001009": {
     "code": "TASK_001009",
-    "message": "team id is required"
+    "message": "Team ID is required."
   },
   "TASK_001010": {
     "code": "TASK_001010",
-    "message": "you are not a member of this team"
+    "message": "You are not a member of this team."
   },
   "TASK_001011": {
     "code": "TASK_001011",
-    "message": "you are not a admin or owner of this team"
+    "message": "You must be an admin or owner to perform this action on the team."
   },
   "TASK_001012": {
     "code": "TASK_001012",
-    "message": "unacceptable data for create task"
+    "message": "Invalid data provided for creating a task."
   },
   "TASK_001013": {
     "code": "TASK_001013",
-    "message": "unacceptable data for update task"
+    "message": "Invalid data provided for updating the task."
   }
 }
