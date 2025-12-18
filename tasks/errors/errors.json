@@ -14,7 +14,7 @@
   "TASK_001003": {
     "code": "TASK_001003",
     "message": "unacceptable data for update a task"
-  } ,
+  },
   "TASK_001004": {
     "code": "TASK_001004",
     "message": "team is required"
@@ -30,11 +30,11 @@
   "TASK_001008": {
     "code": "TASK_001008",
     "message": "team not found"
-  } ,
+  },
   "TASK_001009": {
     "code": "TASK_001009",
     "message": "team id is required"
-  } ,
+  },
   "TASK_001010": {
     "code": "TASK_001010",
     "message": "you are not a member of this team"
@@ -42,5 +42,13 @@
   "TASK_001011": {
     "code": "TASK_001011",
     "message": "you are not a admin or owner of this team"
+  },
+  "TASK_001012": {
+    "code": "TASK_001012",
+    "message": "unacceptable data for create task"
+  },
+  "TASK_001013": {
+    "code": "TASK_001013",
+    "message": "unacceptable data for update task"
   }
 }
