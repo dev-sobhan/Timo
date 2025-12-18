@@ -88,15 +88,15 @@ class TeamMembershipAdminViewSet(ModelViewSet):
     def accept(self, request, pk: int = None):
         try:
             instance = self.get_object()
-            if instance.team.members.filter(user=request.user, role__in=['owner', 'admin']).exists():
-                instance.status = 'accepted'
-                instance.save(update_fields=['status'])
-                TeamMember.objects.create(team=instance.team, user=request.user)
-                return success_response({'status': 'Request accepted'})
+            instance.status = 'accepted'
+            instance.save(update_fields=['status'])
+            TeamMember.objects.create(team=instance.team, user=instance.user)
+            return success_response({'status': 'Request accepted'})
 
+        except TeamRequest.DoesNotExist:
             return error_response(
                 error_dict=get_error(key="TEAM_001009"),
-                status=status.HTTP_400_BAD_REQUEST
+                status=status.HTTP_404_NOT_FOUND
             )
         except Exception as e:
             return error_response(

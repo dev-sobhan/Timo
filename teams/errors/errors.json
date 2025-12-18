@@ -1,6 +1,6 @@
 {
-  "TEAM_001000": {
-    "code": "TEAM_001000",
+  "TEAM_001001": {
+    "code": "TEAM_001001",
     "message": "Authentication required. User must be logged in to perform this action."
   },
   "TEAM_001002": {
@@ -33,7 +33,7 @@
   },
   "TEAM_001009": {
     "code": "TEAM_001009",
-    "message": "you are not owner or admin of this team"
+    "message": "invalid id"
   },
   "TEAM_001010": {
     "code": "TEAM_001010",

@@ -22,7 +22,6 @@ class TeamMembershipAdminViewSetTestCase(APITestCase):
         # Team and members
         self.team = Team.objects.create(title="Team A", description="Test team")
         TeamMember.objects.create(team=self.team, user=self.user_owner, role="owner")
-        TeamMember.objects.create(team=self.team, user=self.user_member, role="member")
 
         # Membership requests
         self.request_pending = TeamRequest.objects.create(team=self.team, user=self.user_member)

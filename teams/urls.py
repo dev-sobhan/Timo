@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import TeamViewSet, UserMembershipRequestViewSet,TeamMembershipAdminViewSet
+from .views import TeamViewSet, UserMembershipRequestViewSet, TeamMembershipAdminViewSet
 
 app_name = 'teams'
 
@@ -21,7 +21,7 @@ urlpatterns = [
     # Retrieve or accept a specific membership request
     path(
         "membership/request/admin/<int:pk>/",
-        TeamMembershipAdminViewSet.as_view({"get": "retrieve", "patch": "accept","delete": "reject"}),
+        TeamMembershipAdminViewSet.as_view({"get": "retrieve", "patch": "accept", "delete": "reject"}),
         name="membership_request_detail_admin"
     ),
 
@@ -33,7 +33,6 @@ urlpatterns = [
     path("membership/request/<int:pk>/", UserMembershipRequestViewSet.as_view({
         "get": "retrieve",
     }), name="membership_request_detail"),
-
 
     # Public teams
     path("list/", TeamViewSet.as_view({"get": "public_teams"}), name="team-public-list"),

@@ -48,11 +48,11 @@ class TeamViewSet(viewsets.ModelViewSet):
                 "The request must include required team fields such as name, visibility status, "
                 "and optional description. Validation errors are returned if provided data is invalid."
         ),
-        request=TeamSerializer,
+        request=serializer_class,
         responses={
             201: OpenApiResponse(
                 description="Team created successfully",
-                response=TeamSerializer
+                response=serializer_class
             ),
             400: OpenApiResponse(
                 description="Invalid team data or validation error",
@@ -82,7 +82,7 @@ class TeamViewSet(viewsets.ModelViewSet):
         responses={
             200: OpenApiResponse(
                 description="List of teams the user is a member of",
-                response=TeamSerializer
+                response=serializer_class
             )
         }
     )
@@ -102,7 +102,7 @@ class TeamViewSet(viewsets.ModelViewSet):
         responses={
             200: OpenApiResponse(
                 description="List of public teams",
-                response=TeamSerializer
+                response=serializer_class
             )
         }
     )
