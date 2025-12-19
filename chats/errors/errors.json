@@ -1,0 +1,14 @@
+{
+  "CHATS_001001": {
+    "code": "CHATS_001001",
+    "message": "Invalid data provided. Unable to create the group."
+  },
+  "CHATS_001002": {
+    "code": "CHATS_001001",
+    "message": "Invalid data provided. Unable to create the private chat."
+  },
+  "CHATS_001003": {
+    "code": "CHATS_001001",
+    "message": "Internal server error "
+  }
+}

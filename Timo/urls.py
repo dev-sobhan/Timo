@@ -9,6 +9,7 @@ urlpatterns = [
     path('api/users/', include('users.urls', namespace='users')),
     path('api/teams/', include('teams.urls', namespace='teams')),
     path('api/tasks/', include('tasks.urls', namespace='tasks')),
+    path('api/chats/', include('chats.urls', namespace='chats')),
 
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
     # Swagger UI
